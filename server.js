@@ -133,7 +133,7 @@ app.post('/login', passport.authenticate('local', {
  * @swagger
  * /signup:
  *  get:
- *    description: Used to render login
+ *    description: Used to render Signup
  *    responses:
  *      '200':
  *        description: A successful response
@@ -153,7 +153,7 @@ app.post('/login', passport.authenticate('local', {
  * @swagger
  * /delete:
  *  get:
- *    description: Used to Logout user
+ *    description: Used to Delete user
  *    responses:
  *      '200':
  *        description: A successful response
@@ -167,30 +167,30 @@ app.post('/login', passport.authenticate('local', {
  *   properties:
  *    name:
  *     type: string
- *     description: name of the team
+ *     description: name of the user
  *     example: 'javscript'
  *    email:
  *     type: string
- *     description: email of the team
+ *     description: email of the user
  *     example: 'email@email.com'
  *    password:
  *     type: string
- *     description: description of the team
+ *     description: password of the user
  *     example: 'password'
  *    confirmPassword:
  *     type: string
- *     description: description of the team
+ *     description: password of the user
  *     example: 'password'
  *  userlogin:
  *   type: object
  *   properties:
  *    email:
  *     type: string
- *     description: email of the team
+ *     description: email of the user
  *     example: 'javascript@whizpath.com'
  *    password:
  *     type: string
- *     description: description of the team
+ *     description: password of the user
  *     example: 'javascript'
  *  
  * 
@@ -200,8 +200,8 @@ app.post('/login', passport.authenticate('local', {
 * @swagger
 * /signup:
 *  post:
-*   summary: create employee
-*   description: create employee for the organisation
+*   summary: create user
+*   description: create user for the organisation
 *   requestBody:
 *    content:
 *     application/json:
@@ -209,9 +209,7 @@ app.post('/login', passport.authenticate('local', {
 *       $ref: '#/definitions/users'
 *   responses:
 *    200:
-*     description: employee created succesfully
-*    500:
-*     description: failure in creating employee
+*     description: user created succesfully
 */
 /**
  *  @swagger
