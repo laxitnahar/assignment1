@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    
+<body>
+    <% if(session.passport) { %>
+    
+<div style="display: block;margin: 100px;  text-align: center;">
+    <button><a href="/delete">Delete Account</a></button>
+</div>
+
+<div style="display: block;margin: 100px;  text-align: center;">
+    <button><a href="/logout">Logout</a></button>
+<% } else { %>
+    <div style="display: block;margin: 100px;  text-align: center;">
+        <button><a href="/login">Login</a></button>
+    </div>
+    
+    <div style="display: block;margin: 100px;  text-align: center;">
+        <button><a href="/signup">Signup</a></button>
+    </div>
+<% } %>
+</body>
+</html>
