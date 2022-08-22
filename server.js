@@ -209,23 +209,6 @@ app.post('/login', passport.authenticate('local', {
  *         description: Server error
  */
 
- /**
-  * @swagger
-  * /signup:
-  *  post:
-  *   summary: create employee
-  *   description: create employee for the organisation
-  *   requestBody:
-  *    content:
-  *     application/json:
-  *      schema:
-  *       $ref: '#/definitions/users'
-  *   responses:
-  *    200:
-  *     description: employee created succesfully
-  *    500:
-  *     description: failure in creating employee
-  */
   
 /**
  *  @swagger
@@ -240,24 +223,16 @@ app.post('/login', passport.authenticate('local', {
  *       - name: 'login'
  *         in: 'body'
  *         required: true
- *         description: 'Login Payload'
+ *         description: 'Login'
  *         schema:
  *           $ref: '#/definitions/users'
  *     responses:
  *       200:
  *         description: Successful login
  *         schema:
- *           $ref: '#/definitions/LoginSuccess'
+ *           $ref: '#/definitions/'
  *       400:
  *         description: Bad Request
- *       404:
- *         schema:
- *           type: string
- *         description: User not found
- *       500:
- *         schema:
- *           type: string
- *         description: Server error
  */
 
 
