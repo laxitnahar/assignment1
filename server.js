@@ -155,6 +155,18 @@ app.post('/login', passport.authenticate('local', {
  *     type: string
  *     description: description of the team
  *     example: 'javascript'
+ *  userlogin:
+ *   type: object
+ *   properties:
+ *    email:
+ *     type: string
+ *     description: email of the team
+ *     example: 'javascript@whizpath.com'
+ *    password:
+ *     type: string
+ *     description: description of the team
+ *     example: 'javascript'
+ *  
  * 
  */
 
@@ -214,7 +226,7 @@ app.post('/login', passport.authenticate('local', {
  *  @swagger
  *  /login:
  *   post:
- *     description: 'Returns token for authorized User'
+ *     description: 'Returns to routes to authorized User'
  *     tags: [user]
  *     operationId: Login
  *     consumes:
@@ -225,7 +237,7 @@ app.post('/login', passport.authenticate('local', {
  *         required: true
  *         description: 'Login'
  *         schema:
- *           $ref: '#/definitions/users'
+ *           $ref: '#/definitions/userlogin'
  *     responses:
  *       200:
  *         description: Successful login
