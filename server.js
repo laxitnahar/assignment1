@@ -150,11 +150,15 @@ app.post('/login', passport.authenticate('local', {
  *    email:
  *     type: string
  *     description: email of the team
- *     example: 'javascript@whizpath.com'
+ *     example: 'email@email.com'
  *    password:
  *     type: string
  *     description: description of the team
- *     example: 'javascript'
+ *     example: 'password'
+ *    confirmPassword:
+ *     type: string
+ *     description: description of the team
+ *     example: 'password'
  *  userlogin:
  *   type: object
  *   properties:
@@ -170,23 +174,6 @@ app.post('/login', passport.authenticate('local', {
  * 
  */
 
- /**
-  * @swagger
-  * /signup:
-  *  post:
-  *   summary: create employee
-  *   description: create employee for the organisation
-  *   requestBody:
-  *    content:
-  *     application/json:
-  *      schema:
-  *       $ref: '#/definitions/users'
-  *   responses:
-  *    200:
-  *     description: employee created succesfully
-  *    500:
-  *     description: failure in creating employee
-  */
   
 /**
  *  @swagger
@@ -201,24 +188,9 @@ app.post('/login', passport.authenticate('local', {
  *       - name: 'login'
  *         in: 'body'
  *         required: true
- *         description: 'Login Payload'
+ *         description: 'Signup'
  *         schema:
  *           $ref: '#/definitions/users'
- *     responses:
- *       200:
- *         description: Successful login
- *         schema:
- *           $ref: '#/definitions/LoginSuccess'
- *       400:
- *         description: Bad Request
- *       404:
- *         schema:
- *           type: string
- *         description: User not found
- *       500:
- *         schema:
- *           type: string
- *         description: Server error
  */
 
   
