@@ -174,7 +174,23 @@ app.post('/login', passport.authenticate('local', {
  * 
  */
 
-  
+  /**
+  * @swagger
+  * /signup:
+  *  post:
+  *   summary: create employee
+  *   description: create employee for the organisation
+  *   requestBody:
+  *    content:
+  *     application/json:
+  *      schema:
+  *       $ref: '#/definitions/users'
+  *   responses:
+  *    200:
+  *     description: employee created succesfully
+  *    500:
+  *     description: failure in creating employee
+  */
 /**
  *  @swagger
  *  /signup:
