@@ -43,6 +43,29 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
+var corsOptions={
+    origin:'https://login-signup-register.herokuapp.com/',
+    optionSuccessStatus:200
+}
+const swaggerOptions = {
+    swaggerDefinition: {
+      info: {
+        version: "1.0.0",
+        title: "Customer API",
+        description: "Customer API Information",
+        contact: {
+          name: "Amazing Developer"
+        },
+        servers: ["https://login-signup-register.herokuapp.com/"]
+      }
+    },
+    // ['.routes/*.js']
+    apis: ["server.js"]
+  };
+
+  const swaggerDocs = swaggerJsDoc(swaggerOptions);
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 app.use((req, res, next) => {
     res.locals.session = req.session
     next()
@@ -90,6 +113,152 @@ app.post('/login', passport.authenticate('local', {
     failureFlash: true
 },
 ))
+
+
+// Routes
+/**
+ * @swagger
+ * /login:
+ *  get:
+ *    description: Used to render login
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
+
+/**
+ * @swagger
+ * /signup:
+ *  get:
+ *    description: Used to render login
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
+/**
+ * @swagger
+ * definitions:
+ *  users:
+ *   type: object
+ *   properties:
+ *    name:
+ *     type: string
+ *     description: name of the team
+ *     example: 'javscript'
+ *    email:
+ *     type: string
+ *     description: email of the team
+ *     example: 'javascript@whizpath.com'
+ *    password:
+ *     type: string
+ *     description: description of the team
+ *     example: 'javascript'
+ * 
+ */
+
+ /**
+  * @swagger
+  * /signup:
+  *  post:
+  *   summary: create employee
+  *   description: create employee for the organisation
+  *   requestBody:
+  *    content:
+  *     application/json:
+  *      schema:
+  *       $ref: '#/definitions/users'
+  *   responses:
+  *    200:
+  *     description: employee created succesfully
+  *    500:
+  *     description: failure in creating employee
+  */
+  
+/**
+ *  @swagger
+ *  /signup:
+ *   post:
+ *     description: 'Returns token for authorized User'
+ *     tags: [user]
+ *     operationId: Login
+ *     consumes:
+ *       - "application/json"
+ *     parameters:
+ *       - name: 'login'
+ *         in: 'body'
+ *         required: true
+ *         description: 'Login Payload'
+ *         schema:
+ *           $ref: '#/definitions/users'
+ *     responses:
+ *       200:
+ *         description: Successful login
+ *         schema:
+ *           $ref: '#/definitions/LoginSuccess'
+ *       400:
+ *         description: Bad Request
+ *       404:
+ *         schema:
+ *           type: string
+ *         description: User not found
+ *       500:
+ *         schema:
+ *           type: string
+ *         description: Server error
+ */
+
+ /**
+  * @swagger
+  * /signup:
+  *  post:
+  *   summary: create employee
+  *   description: create employee for the organisation
+  *   requestBody:
+  *    content:
+  *     application/json:
+  *      schema:
+  *       $ref: '#/definitions/users'
+  *   responses:
+  *    200:
+  *     description: employee created succesfully
+  *    500:
+  *     description: failure in creating employee
+  */
+  
+/**
+ *  @swagger
+ *  /login:
+ *   post:
+ *     description: 'Returns token for authorized User'
+ *     tags: [user]
+ *     operationId: Login
+ *     consumes:
+ *       - "application/json"
+ *     parameters:
+ *       - name: 'login'
+ *         in: 'body'
+ *         required: true
+ *         description: 'Login Payload'
+ *         schema:
+ *           $ref: '#/definitions/users'
+ *     responses:
+ *       200:
+ *         description: Successful login
+ *         schema:
+ *           $ref: '#/definitions/LoginSuccess'
+ *       400:
+ *         description: Bad Request
+ *       404:
+ *         schema:
+ *           type: string
+ *         description: User not found
+ *       500:
+ *         schema:
+ *           type: string
+ *         description: Server error
+ */
 
 
 
