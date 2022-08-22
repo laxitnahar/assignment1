@@ -234,7 +234,7 @@ app.post('/login', passport.authenticate('local', {
  *  @swagger
  *  /login:
  *   post:
- *     description: 'Returns to routes to authorized User'
+ *     description: 'Returns token for authorized User'
  *     tags: [user]
  *     operationId: Login
  *     consumes:
@@ -243,10 +243,26 @@ app.post('/login', passport.authenticate('local', {
  *       - name: 'login'
  *         in: 'body'
  *         required: true
- *         description: 'Login'
+ *         description: 'Login Payload'
  *         schema:
  *           $ref: '#/definitions/userlogin'
+ *     responses:
+ *       200:
+ *         description: Successful login
+ *         schema:
+ *           $ref: '#/definitions/LoginSuccess'
+ *       400:
+ *         description: Bad Request
+ *       404:
+ *         schema:
+ *           type: string
+ *         description: User not found
+ *       500:
+ *         schema:
+ *           type: string
+ *         description: Server error
  */
+
 
 
 
