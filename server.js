@@ -139,6 +139,16 @@ app.post('/login', passport.authenticate('local', {
 
 /**
  * @swagger
+ * /logout:
+ *  get:
+ *    description: Used to Logout user
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
+/**
+ * @swagger
  * definitions:
  *  users:
  *   type: object
