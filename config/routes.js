@@ -19,9 +19,13 @@ function initRoutes(app) {
         });
     })
     app.get('/delete',async(req,resp)=>{
-       
+        if(!req.session.passport){
+            resp.redirect('/')
+        }
+        else{
         await users.deleteOne({_id:req.session.passport.user})
         resp.redirect('/logout')
+        }
     })
 }
 
