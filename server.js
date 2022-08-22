@@ -43,34 +43,34 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
-var corsOptions={
-    origin:'https://login-signup-register.herokuapp.com/',
-    optionSuccessStatus:200
+var corsOptions = {
+    origin: 'https://login-signup-register.herokuapp.com/',
+    optionSuccessStatus: 200
 }
 const swaggerOptions = {
     swaggerDefinition: {
-      info: {
-        version: "1.0.0",
-        title: "Customer API",
-        description: "Customer API Information",
-        contact: {
-          name: "Amazing Developer"
-        },
-        servers: ["https://login-signup-register.herokuapp.com/"]
-      }
+        info: {
+            version: "1.0.0",
+            title: "Customer API",
+            description: "Customer API Information",
+            contact: {
+                name: "Amazing Developer"
+            },
+            servers: ["https://login-signup-register.herokuapp.com/"]
+        }
     },
     // ['.routes/*.js']
     apis: ["server.js"]
-  };
+};
 
-  const swaggerDocs = swaggerJsDoc(swaggerOptions);
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use((req, res, next) => {
     res.locals.session = req.session
     next()
 })
- 
+
 app.post('/signup', async (req, resp) => {
     var name = req.body.name
     var email = req.body.email
@@ -149,6 +149,16 @@ app.post('/login', passport.authenticate('local', {
 
 /**
  * @swagger
+ * /delete:
+ *  get:
+ *    description: Used to Logout user
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+
+/**
+ * @swagger
  * definitions:
  *  users:
  *   type: object
@@ -184,23 +194,23 @@ app.post('/login', passport.authenticate('local', {
  * 
  */
 
-  /**
-  * @swagger
-  * /signup:
-  *  post:
-  *   summary: create employee
-  *   description: create employee for the organisation
-  *   requestBody:
-  *    content:
-  *     application/json:
-  *      schema:
-  *       $ref: '#/definitions/users'
-  *   responses:
-  *    200:
-  *     description: employee created succesfully
-  *    500:
-  *     description: failure in creating employee
-  */
+/**
+* @swagger
+* /signup:
+*  post:
+*   summary: create employee
+*   description: create employee for the organisation
+*   requestBody:
+*    content:
+*     application/json:
+*      schema:
+*       $ref: '#/definitions/users'
+*   responses:
+*    200:
+*     description: employee created succesfully
+*    500:
+*     description: failure in creating employee
+*/
 /**
  *  @swagger
  *  /signup:
@@ -219,7 +229,7 @@ app.post('/login', passport.authenticate('local', {
  *           $ref: '#/definitions/users'
  */
 
-  
+
 /**
  *  @swagger
  *  /login:
