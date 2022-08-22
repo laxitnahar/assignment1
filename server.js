@@ -71,6 +71,8 @@ app.use((req, res, next) => {
     next()
 })
 
+
+
 app.post('/signup', async (req, resp) => {
     var name = req.body.name
     var email = req.body.email
@@ -246,13 +248,6 @@ app.post('/login', passport.authenticate('local', {
  *         description: 'Login'
  *         schema:
  *           $ref: '#/definitions/userlogin'
- *     responses:
- *       200:
- *         description: Successful login
- *         schema:
- *           $ref: '#/definitions/'
- *       400:
- *         description: Bad Request
  */
 
 
