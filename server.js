@@ -18,16 +18,16 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({
     extended: false
 }))
-app.use(flash())
-const users = require('./config/models/register')
+
+
 mongoose.connect('mongodb+srv://laxit:laxit@cluster0.wuuul96.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-
+const users = require('./config/models/register')
 app.set('view engine', 'html')
 app.engine('html', require('ejs').renderFile);
-
+app.use(flash())
 app.use(session({
     secret: '1234567qwdeq890QWERTY',
     resave: false,
